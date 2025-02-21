@@ -101,68 +101,68 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-900 p-6 font-redhat">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
+    <div className="min-h-screen bg-zinc-900 font-redhat overflow-x-hidden">
+      <div className="max-w-4xl mx-auto px-3 py-4 sm:px-6 sm:py-6">
+        <div className="text-center mb-6 sm:mb-8">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Brain className="w-8 h-8 text-orange-400" />
-            <h1 className="text-4xl font-bold text-orange-400">AI Buzzword Bingo</h1>
+            <Brain className="w-6 h-6 sm:w-8 sm:h-8 text-orange-400" />
+            <h1 className="text-2xl sm:text-4xl font-bold text-orange-400">AI Buzzword Bingo</h1>
           </div>
-          <p className="text-orange-200/80 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base text-orange-200/80 max-w-2xl mx-auto px-2">
             Network with others and find someone who can explain each AI term before marking it off.
             First to get 5 in a row (horizontal, vertical, or diagonal) wins! Keep going to fill the whole board!
           </p>
           <button
             onClick={handleNewGame}
-            className="mt-4 px-4 py-2 bg-orange-400 text-zinc-900 font-bold rounded-lg hover:bg-orange-300 transition-colors"
+            className="mt-3 sm:mt-4 px-4 py-2 bg-orange-400 text-zinc-900 font-bold rounded-lg hover:bg-orange-300 transition-colors text-sm sm:text-base"
           >
             Start New Game
           </button>
         </div>
 
         {hasBingo && !isComplete && (
-          <div className="mb-6 p-4 bg-zinc-800/50 rounded-lg text-center border border-orange-400/50">
+          <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-zinc-800/50 rounded-lg text-center border border-orange-400/50">
             <div className="flex items-center justify-center gap-2">
-              <Trophy className="w-6 h-6 text-orange-400" />
-              <p className="text-orange-300 font-semibold">BINGO! Keep going to complete the board!</p>
+              <Trophy className="w-5 h-5 sm:w-6 sm:h-6 text-orange-400" />
+              <p className="text-sm sm:text-base text-orange-300 font-semibold">BINGO! Keep going to complete the board!</p>
             </div>
           </div>
         )}
 
         {isComplete && (
-          <div className="mb-6 p-4 bg-zinc-800/50 rounded-lg text-center border border-orange-400/50">
+          <div className="mb-4 sm:mb-6 p-3 sm:p-4 bg-zinc-800/50 rounded-lg text-center border border-orange-400/50">
             <div className="flex items-center justify-center gap-2">
-              <PartyPopper className="w-6 h-6 text-orange-400" />
-              <p className="text-orange-300 font-semibold">Congratulations! You've completed the entire board!</p>
+              <PartyPopper className="w-5 h-5 sm:w-6 sm:h-6 text-orange-400" />
+              <p className="text-sm sm:text-base text-orange-300 font-semibold">Congratulations! You've completed the entire board!</p>
             </div>
           </div>
         )}
 
-        <div className="grid grid-cols-5 gap-2 mb-6">
+        <div className="grid grid-cols-5 gap-1 sm:gap-2 mb-4 sm:mb-6">
           {board.map((term, index) => (
             <button
               key={index}
               onClick={() => handleSquareClick(index)}
               className={`
-                aspect-square p-2 rounded-lg text-sm font-medium transition-all
+                aspect-square p-1 sm:p-2 rounded-lg text-[10px] leading-tight sm:text-sm font-medium transition-all
                 ${marks[index]
                   ? 'bg-orange-400 text-zinc-900 shadow-lg transform scale-[0.98]'
                   : 'bg-zinc-800 text-orange-300 border border-orange-400/20 shadow-md hover:shadow-lg hover:scale-[1.02] hover:border-orange-400/40'}
                 ${selectedTerm === index ? 'ring-2 ring-orange-300' : ''}
               `}
             >
-              <div className="h-full flex flex-col items-center justify-center">
+              <div className="h-full flex flex-col items-center justify-center text-center">
                 {term}
-                {marks[index] && <Check className="w-4 h-4 mt-1" />}
+                {marks[index] && <Check className="w-3 h-3 sm:w-4 sm:h-4 mt-1" />}
               </div>
             </button>
           ))}
         </div>
 
         {selectedTerm !== null && (
-          <div className="bg-zinc-800 border border-orange-400/20 p-4 rounded-lg shadow-md">
-            <h2 className="font-semibold text-orange-400 mb-2">Selected Term: {board[selectedTerm]}</h2>
-            <p className="text-orange-200/80">
+          <div className="bg-zinc-800 border border-orange-400/20 p-3 sm:p-4 rounded-lg shadow-md">
+            <h2 className="font-semibold text-orange-400 mb-1 sm:mb-2 text-sm sm:text-base">Selected Term: {board[selectedTerm]}</h2>
+            <p className="text-orange-200/80 text-sm sm:text-base">
               Find someone who can explain this term to you before marking it off!
             </p>
           </div>
