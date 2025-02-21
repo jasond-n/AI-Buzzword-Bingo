@@ -101,39 +101,39 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 p-6">
+    <div className="min-h-screen bg-zinc-900 p-6 font-redhat">
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-2">
-            <Brain className="w-8 h-8 text-purple-600" />
-            <h1 className="text-4xl font-bold text-gray-800">AI Buzzword Bingo</h1>
+            <Brain className="w-8 h-8 text-orange-400" />
+            <h1 className="text-4xl font-bold text-orange-400">AI Buzzword Bingo</h1>
           </div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-orange-200/80 max-w-2xl mx-auto">
             Network with others and find someone who can explain each AI term before marking it off.
             First to get 5 in a row (horizontal, vertical, or diagonal) wins! Keep going to fill the whole board!
           </p>
           <button
             onClick={handleNewGame}
-            className="mt-4 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+            className="mt-4 px-4 py-2 bg-orange-400 text-zinc-900 font-bold rounded-lg hover:bg-orange-300 transition-colors"
           >
             Start New Game
           </button>
         </div>
 
         {hasBingo && !isComplete && (
-          <div className="mb-6 p-4 bg-green-100 rounded-lg text-center">
+          <div className="mb-6 p-4 bg-zinc-800/50 rounded-lg text-center border border-orange-400/50">
             <div className="flex items-center justify-center gap-2">
-              <Trophy className="w-6 h-6 text-green-600" />
-              <p className="text-green-700 font-semibold">BINGO! Keep going to complete the board!</p>
+              <Trophy className="w-6 h-6 text-orange-400" />
+              <p className="text-orange-300 font-semibold">BINGO! Keep going to complete the board!</p>
             </div>
           </div>
         )}
 
         {isComplete && (
-          <div className="mb-6 p-4 bg-purple-100 rounded-lg text-center">
+          <div className="mb-6 p-4 bg-zinc-800/50 rounded-lg text-center border border-orange-400/50">
             <div className="flex items-center justify-center gap-2">
-              <PartyPopper className="w-6 h-6 text-purple-600" />
-              <p className="text-purple-700 font-semibold">Congratulations! You've completed the entire board!</p>
+              <PartyPopper className="w-6 h-6 text-orange-400" />
+              <p className="text-orange-300 font-semibold">Congratulations! You've completed the entire board!</p>
             </div>
           </div>
         )}
@@ -145,10 +145,10 @@ function App() {
               onClick={() => handleSquareClick(index)}
               className={`
                 aspect-square p-2 rounded-lg text-sm font-medium transition-all
-                ${marks[index] 
-                  ? 'bg-purple-600 text-white shadow-lg transform scale-[0.98]' 
-                  : 'bg-white text-gray-700 shadow-md hover:shadow-lg hover:scale-[1.02]'}
-                ${selectedTerm === index ? 'ring-2 ring-blue-400' : ''}
+                ${marks[index]
+                  ? 'bg-orange-400 text-zinc-900 shadow-lg transform scale-[0.98]'
+                  : 'bg-zinc-800 text-orange-300 border border-orange-400/20 shadow-md hover:shadow-lg hover:scale-[1.02] hover:border-orange-400/40'}
+                ${selectedTerm === index ? 'ring-2 ring-orange-300' : ''}
               `}
             >
               <div className="h-full flex flex-col items-center justify-center">
@@ -160,9 +160,9 @@ function App() {
         </div>
 
         {selectedTerm !== null && (
-          <div className="bg-white p-4 rounded-lg shadow-md">
-            <h2 className="font-semibold text-gray-800 mb-2">Selected Term: {board[selectedTerm]}</h2>
-            <p className="text-gray-600">
+          <div className="bg-zinc-800 border border-orange-400/20 p-4 rounded-lg shadow-md">
+            <h2 className="font-semibold text-orange-400 mb-2">Selected Term: {board[selectedTerm]}</h2>
+            <p className="text-orange-200/80">
               Find someone who can explain this term to you before marking it off!
             </p>
           </div>
